@@ -30,7 +30,8 @@ const cardClass = ref('card');
   color: white;
   position: relative;
 
-  box-shadow: 3px 3px rgb(0 0 0 / 0.1), -3px -3px rgb(255 255 255 / 0.1)
+  box-shadow: 3px 3px rgb(0 0 0 / 0.1),
+              -3px -3px rgb(255 255 255 / 0.1);
 }
 
 button {
@@ -47,5 +48,9 @@ button {
 }
 .checked {
   text-decoration: line-through;
+}
+
+input {
+  margin-left: 30px;
 }
 </style>
