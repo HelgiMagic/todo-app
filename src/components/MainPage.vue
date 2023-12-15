@@ -23,8 +23,8 @@ const handleSubmit = (e) => {
   <h1>Todo list</h1>
   <div class="container">
     <form action="" class="form" @submit="handleSubmit">
-      <input type="text" v-model="text" placeholder="Новое дело" />
-      <button>Добавить</button>
+      <input type="text" v-model="text" placeholder="New to do" />
+      <button class="button-36">Add todo</button>
     </form>
     <ul class="items-container">
       <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"></TodoItem>
@@ -37,19 +37,25 @@ h1 {
   margin: auto;
   color: white;
 }
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1250px;
+  max-width: 1250px;
   height: 80vh;
+
+  margin: auto;
 }
 
 .form {
   margin-top: 50px;
 
   display: flex;
-  height: 46px;
+  height: 64px;
+  justify-content: center;
+
+  width: 70%;
 }
 
 .items-container {
@@ -60,7 +66,8 @@ input {
   display: block;
 
   max-width: 100%;
-  width: 228px;
+  width: 100%;
+  flex-shrink: 1;
 
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -70,7 +77,7 @@ input {
   background-clip: padding-box;
   background-color: var(--soft);
 
-  border: 1px solid rgba(0, 0, 0, 0.6);
+  border: 1px solid rgb;
   border-radius: 20px;
 
   outline: none;
@@ -79,15 +86,32 @@ input {
 }
 
 button {
-  background-color: #42b883;
+  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
   border-radius: 8px;
+  border-style: none;
 
-  height: 100%;
+  flex-shrink: 3;
 
-  outline: none;
-  border: 0;
+  color: #FFFFFF;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 500;
 
-  font-weight: 600;
+  padding: 0 1.6rem;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+  transition: all .5s;
+
+  box-shadow: 0 0 0.5em rgb(103 63 215 / 0.4),
+  0 0 transparent,
+  inset 0 -5px 0 rgba(0,0,0,0.05),
+  inset 0 2px 0 rgba(255,255,255,0.2);
+}
+
+button:hover {
+  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  transition-duration: .1s;
 }
 
 .items-container {
@@ -97,4 +121,11 @@ button {
 
   gap:10px;
 }
+
+@media (max-width: 1000px) {
+  .form {
+    width: 98%;
+  }
+}
+
 </style>

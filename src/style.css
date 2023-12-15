@@ -5,6 +5,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -12,16 +14,21 @@ body {
   line-height: 1.5;
   font-weight: 400;
   
-  background-color: #1a1a1a;
+  background-color: rgb(35 39 47);
   display: flex;
   justify-content: center;
   align-items: center;
 
   min-height: 100vh;
 
-  --soft: #242424;
+  --soft: rgb(52 58 70);
 
   text-align: center;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
 }
 
 button {
