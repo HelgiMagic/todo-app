@@ -23,7 +23,7 @@ const handleSubmit = (e) => {
   <h1>Todo list</h1>
   <div class="container">
     <form action="" class="form" @submit="handleSubmit">
-      <input type="text" v-model="text" placeholder="New to do" />
+      <input type="text" v-model="text" placeholder="New to do" required/>
       <button class="button-36">Add todo</button>
     </form>
     <ul class="items-container">
@@ -60,6 +60,15 @@ h1 {
 
 .items-container {
   color: black;
+
+  width: 70%;
+  padding: 0 20px;
+
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+
+  gap:20px;
 }
 
 input {
@@ -110,20 +119,15 @@ button {
 }
 
 button:hover {
-  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+  box-shadow: .5px .8px 1.3px hsl(252deg 100% 18%/.12),
+  2px 3.4px 5.3px -.3px hsl(252deg 100% 18%/.21),4.3px 7.2px 11.3px -.7px hsl(252deg 100% 18%/.31),
+  9.3px 15.6px 24.5px -1px hsl(252deg 100% 18%/.4);
+
   transition-duration: .1s;
 }
 
-.items-container {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-
-  gap:10px;
-}
-
 @media (max-width: 1000px) {
-  .form {
+  .form, .items-container {
     width: 98%;
   }
 }

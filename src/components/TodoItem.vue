@@ -8,11 +8,8 @@ const cardClass = ref('card');
 
 <template>
   <li :class="cardClass">
-    <div class="round">
-      <input type="checkbox" checked id="checkbox" />
-      <label for="checkbox"></label>
-    </div>
-    <p>{{ todo.name }}</p>
+    <input type="checkbox" name="checkbox">
+    <label for="checkbox">{{ todo.name }}</label>
   </li>
 </template>
 
@@ -22,13 +19,18 @@ const cardClass = ref('card');
   list-style: none;
   border-radius: 10px;
 
-  width: 500px;
+  width: 100%;
+  margin: auto;
+
+  height: 50px;
   display: flex;
   align-items: center;
   gap: 20px;
 
   color: white;
   position: relative;
+
+  box-shadow: 3px 3px rgb(0 0 0 / 0.1), -3px -3px rgb(255 255 255 / 0.1)
 }
 
 button {
@@ -45,49 +47,5 @@ button {
 }
 .checked {
   text-decoration: line-through;
-}
-
-.checked button {
-  background-image: url('/public/checked.png');
-}
-
-.round {
-  margin-left: 15px;
-  position: relative;
-}
-
-.round label {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  height: 28px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 28px;
-}
-
-.round label:after {
-  border: 2px solid #fff;
-  border-top: none;
-  border-right: none;
-  content: '';
-  height: 6px;
-  left: 7px;
-  opacity: 0;
-  position: absolute;
-  top: 8px;
-  transform: rotate(-45deg);
-  width: 12px;
-}
-
-.round input[type='checkbox']:checked + label {
-  background-color: #66bb6a;
-  border-color: #66bb6a;
-}
-
-.round input[type='checkbox']:checked + label:after {
-  opacity: 1;
 }
 </style>
