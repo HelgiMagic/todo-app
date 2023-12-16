@@ -52,5 +52,6 @@ button {
 
 input {
   margin-left: 30px;
+  accent-color: #db3445;
 }
 </style>
