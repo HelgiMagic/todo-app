@@ -109,17 +109,15 @@ button {
   text-align: center;
   text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
 
-  box-shadow: 0 0 0.5em rgb(219 52 69 / 0.4),
-  0 0 transparent,
+  box-shadow:  5px 5px 10px #111317,
+  -5px -5px 10px rgb(219 52 69 / 0.6),
   inset 0 -5px 0 rgba(0,0,0,0.05),
   inset 0 2px 0 rgba(255,255,255,0.2);
 }
 
 button:hover {
-  box-shadow: .5px .8px 1.3px rgb(219 52 69 / .12),
-  2px 3.4px 5.3px -.3px rgb(219 52 69 / .21),
-  4.3px 7.2px 11.3px -.7px rgb(219 52 69 / .31),
-  0px 15.6px 24.5px -1px rgb(219 52 69 / .4);
+  box-shadow: inset 5px 5px 10px #770b19,
+  inset -5px -5px 10px #ff2351;
 }
 
 @media (max-width: 1000px) {
