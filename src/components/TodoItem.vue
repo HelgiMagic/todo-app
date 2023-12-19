@@ -48,6 +48,7 @@ button {
 }
 .checked {
   text-decoration: line-through;
+  background: black;
 }
 
 input {
