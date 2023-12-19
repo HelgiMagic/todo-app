@@ -17,7 +17,7 @@ const cardClass = ref('card');
 .card {
   background-color: var(--soft);
   list-style: none;
-  border-radius: 10px;
+  border-radius: 19px;
 
   width: 100%;
   margin: auto;
@@ -30,8 +30,8 @@ const cardClass = ref('card');
   color: white;
   position: relative;
 
-  box-shadow: 3px 3px rgb(0 0 0 / 0.1),
-              -3px -3px rgb(255 255 255 / 0.1);
+  box-shadow: 3px 3px 10px rgb(0 0 0 / 0.1),
+              -3px -3px 10px rgb(185 185 185 / 0.1);
 }
 
 button {

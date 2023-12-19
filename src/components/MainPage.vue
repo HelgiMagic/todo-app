@@ -119,7 +119,7 @@ button:hover {
   box-shadow: .5px .8px 1.3px rgb(219 52 69 / .12),
   2px 3.4px 5.3px -.3px rgb(219 52 69 / .21),
   4.3px 7.2px 11.3px -.7px rgb(219 52 69 / .31),
-  9.3px 15.6px 24.5px -1px rgb(219 52 69 / .4);
+  0px 15.6px 24.5px -1px rgb(219 52 69 / .4);
 }
 
 @media (max-width: 1000px) {
