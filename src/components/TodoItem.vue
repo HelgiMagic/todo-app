@@ -1,15 +1,27 @@
 <script setup>
 import { ref } from 'vue';
+import useCounterStore from '../stores/todos';
 
-defineProps(['todo']);
-
+const props = defineProps(['todo']);
 const cardClass = ref('card');
+
+const todosStore = useCounterStore();
+
+const handleDelete = () => {
+  todosStore.deleteTodo(props.todo.id);
+};
+
 </script>
 
 <template>
   <li :class="cardClass">
-    <input type="checkbox" name="checkbox">
-    <label for="checkbox">{{ todo.name }}</label>
+    <div class="card__start">
+      <input type="checkbox" name="checkbox">
+      <label for="checkbox">{{ todo.name }}</label>
+    </div>
+    <button class="delete-btn" @click="handleDelete">
+      <img src="/delete.svg" alt="" class="delete-icon">
+    </button>
   </li>
 </template>
 
@@ -19,6 +31,9 @@ const cardClass = ref('card');
   list-style: none;
   border-radius: 19px;
 
+  display: flex;
+  justify-content: space-between;
+
   width: 100%;
   margin: auto;
 
@@ -27,7 +42,7 @@ const cardClass = ref('card');
   white-space: normal;
   word-wrap: break-word;
 
-  padding: 20px 0;
+  padding: 20px 30px;
 
   display: flex;
   align-items: center;
@@ -47,11 +62,35 @@ label {
   text-align: start;
 }
 
+.card__start {
+  display: flex;
+  gap: 20px;
+
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.delete-btn {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  height: 20px;
+  width: 20px;
+
+  margin: 0;
+}
+.delete-icon {
+  width: 20px;
+  height: 20px;
+}
+
 button {
   height: 28px;
   width: 28px;
   border-radius: 50px;
-  background-image: url('/public/unchecked.png');
+  background-image: url('/unchecked.png');
   background-size: cover;
   background-position: center;
   margin-left: 5px;
@@ -64,7 +103,6 @@ button {
 }
 
 input {
-  margin-left: 30px;
   accent-color: #db3445;
 }
 

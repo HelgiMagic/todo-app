@@ -1,14 +1,17 @@
 <script setup>
 import { ref } from 'vue';
 import TodoItem from './TodoItem.vue';
+import useCounterStore from '../stores/todos';
 
-const todos = ref([]);
 const text = ref('');
 let id = 0;
 
+const todosStore = useCounterStore();
+
 const handleSubmit = (e) => {
   e.preventDefault();
-  todos.value.push({
+
+  todosStore.addTodo({
     name: text.value,
     done: false,
     id,
@@ -27,14 +30,14 @@ const handleSubmit = (e) => {
       <button class="button-36">Add todo</button>
     </form>
     <ul class="items-container">
-      <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo"></TodoItem>
+      <TodoItem v-for="todo in todosStore.todos" :key="todo.id" :todo="todo"></TodoItem>
     </ul>
   </div>
 </template>
 
 <style scoped>
 h1 {
-  margin: auto;
+  margin-top: 50px;
   color: white;
 }
 
@@ -43,7 +46,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   max-width: 1250px;
-  height: 80vh;
+  min-height: 80vh;
 
   margin: auto;
 }
@@ -86,7 +89,7 @@ input {
   background-clip: padding-box;
   background-color: var(--soft);
 
-  border: 1px solid rgb;
+  border: none;
   border-radius: 20px;
 
   outline: none;
