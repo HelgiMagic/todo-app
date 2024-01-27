@@ -11,17 +11,34 @@ const handleDelete = () => {
   todosStore.deleteTodo(props.todo.id);
 };
 
+const handleArchive = () => {
+  todosStore.archiveTodo(props.todo.id);
+};
+
+const handleUnarchive = () => {
+  todosStore.unarchiveTodo(props.todo.id);
+};
+
 </script>
 
 <template>
   <li :class="cardClass">
-    <div class="card__start">
+    <div class="card__space">
       <input type="checkbox" name="checkbox">
-      <label for="checkbox">{{ todo.name }}</label>
+      <label for="checkbox" aria-multiline="true">{{ todo.name }}</label>
     </div>
-    <button class="delete-btn" @click="handleDelete">
-      <img src="/delete.svg" alt="" class="delete-icon">
-    </button>
+    <div class="card__space">
+      <button class="card-btn" @click="handleDelete" title="delete">
+        <img src="/delete.svg" alt="" class="card-icon">
+      </button>
+
+      <button v-if="!props.todo.archived" class="card-btn" @click="handleArchive" title="archive">
+        <img src="/archive.svg" alt="" class="card-icon">
+      </button>
+      <button v-else class="card-btn" @click="handleUnarchive" title="unarchive">
+        <img src="/unarchive.svg" alt="" class="card-icon">
+      </button>
+    </div>
   </li>
 </template>
 
@@ -62,7 +79,8 @@ label {
   text-align: start;
 }
 
-.card__start {
+.card__space {
+  max-width: 80%;
   display: flex;
   gap: 20px;
 
@@ -70,7 +88,7 @@ label {
   word-wrap: break-word;
 }
 
-.delete-btn {
+.card-btn {
   outline: none;
   border: none;
   background-color: transparent;
@@ -81,7 +99,7 @@ label {
 
   margin: 0;
 }
-.delete-icon {
+.card-icon {
   width: 20px;
   height: 20px;
 }
@@ -107,10 +125,6 @@ input {
 }
 
 @media (max-width: 1000px) {
-  .form, .items-container {
-    width: 98%;
-  }
-
   label {
     max-width: 75%;
   }
