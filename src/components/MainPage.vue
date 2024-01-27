@@ -6,10 +6,11 @@ import useCounterStore from '../stores/todos';
 const text = ref('');
 
 const todosStore = useCounterStore();
-let id = todosStore.todos.at(-1).id + 1 ?? 0;
+let id = todosStore.todos.length > 0 ? todosStore.todos.at(-1).id : -1;
 
 const handleSubmit = (e) => {
   e.preventDefault();
+  id += 1;
 
   todosStore.addTodo({
     name: text.value,
@@ -18,7 +19,6 @@ const handleSubmit = (e) => {
   });
 
   text.value = '';
-  id += 1;
 };
 
 const archivedTodos = computed(() => todosStore.archivedTodos);

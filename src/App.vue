@@ -40,15 +40,16 @@ nav {
   height: 40%;
   background-color: rgb(255 255 255 / 0.3)
 }
-/* .first::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -30px;
-  border-right: black 1px solid;
-  height: 30px;
-  width: 50%;
-  margin: auto;
-  margin-bottom: 20px;
-} */
+
+@media (max-width: 1000px) {
+  nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+
+    z-index: 2;
+    border-radius: 0;
+  }
+}
 </style>
