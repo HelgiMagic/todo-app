@@ -73,7 +73,7 @@ const handleUnarchive = () => {
 }
 
 label {
-  max-width: 90%;
+  max-width: 100%;
   display: block;
 
   text-align: start;
@@ -124,9 +124,9 @@ input {
   accent-color: #db3445;
 }
 
-@media (max-width: 1000px) {
-  label {
-    max-width: 75%;
+@media (max-width: 800px) {
+  .card__space {
+    max-width: 66%;
   }
 }
 </style>

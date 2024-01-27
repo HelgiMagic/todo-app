@@ -4,9 +4,9 @@ import TodoItem from './TodoItem.vue';
 import useCounterStore from '../stores/todos';
 
 const text = ref('');
-let id = 0;
 
 const todosStore = useCounterStore();
+let id = todosStore.todos.at(-1).id + 1 ?? 0;
 
 const handleSubmit = (e) => {
   e.preventDefault();
