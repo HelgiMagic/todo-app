@@ -19,16 +19,21 @@ nav {
 
   background-color: var(--soft);
   width: 300px;
-  height: 40px;
+  height: 50px;
 
   margin: auto;
   margin-top: 50px;
   color: white;
   border-radius: 20px;
 }
+
 .nav-link {
   text-decoration: none;
   color: white;
+}
+
+.router-link-active {
+  border-bottom: 1px solid #f31b37;
 }
 
 .first {

@@ -3,13 +3,16 @@ import { defineStore } from 'pinia';
 
 const useCounterStore = defineStore('todos', {
   state: () => ({ todos: [], archivedTodos: [] }),
-  persist: true,
+  persist: {
+    key: 'my-custom-key',
+  },
   actions: {
     addTodo(todo) {
       this.todos.push(todo);
     },
     deleteTodo(deletingId) {
       const newTodos = this.todos.filter((todo) => todo.id !== deletingId);
+      this.unarchiveTodo(deletingId);
 
       this.todos = newTodos;
     },

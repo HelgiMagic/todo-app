@@ -7,6 +7,7 @@ const text = ref('');
 
 const todosStore = useCounterStore();
 let id = todosStore.todos.length > 0 ? todosStore.todos.at(-1).id : -1;
+console.log(id);
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -25,6 +26,7 @@ const archivedTodos = computed(() => todosStore.archivedTodos);
 const activeTodos = computed(() => (
   todosStore.todos.filter((todo) => !archivedTodos.value.includes(todo.id))
 ));
+console.log(archivedTodos.value, activeTodos.value);
 </script>
 
 <template>
